@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-import "./luxury.css";
+import "./project-art.css";
 
 export const metadata: Metadata = {
   title: "Mirza Haris Amin — Computer Science Student",

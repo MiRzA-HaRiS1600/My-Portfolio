@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SiteFrame } from "~/components/site-frame";
+import { styles } from "~/components/tailwind-styles";
 import { services } from "~/data/services";
 
 type ServicePageProps = {
@@ -34,45 +35,45 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   return (
     <SiteFrame>
       <main id="main">
-        <section className="section service-detail-section" aria-labelledby="service-title">
-          <div className="container service-detail-container">
-            <a className="back-link" href="/services"><span aria-hidden="true">←</span> All areas of interest</a>
-            <div className="service-detail-heading">
-              <p className="eyebrow"><span>{service.number}</span> AREA OF INTEREST · DEVELOPING SKILLS</p>
-              <h1 id="service-title">{service.title}<span className="gradient-text">.</span></h1>
-              <p className="service-detail-lead">{service.description}</p>
-              <p className="service-detail-description">{service.detail}</p>
+        <section className={styles.detailSection} aria-labelledby="service-title">
+          <div className={styles.detailContainer}>
+            <a className={styles.backLink} href="/services"><span aria-hidden="true">←</span> All areas of interest</a>
+            <div className={styles.detailHeading}>
+              <p className={styles.eyebrow}><span>{service.number}</span> AREA OF INTEREST · DEVELOPING SKILLS</p>
+              <h1 className={styles.detailTitle} id="service-title">{service.title}<span className={styles.gradientText}>.</span></h1>
+              <p className={styles.detailLead}>{service.description}</p>
+              <p className={styles.detailDescription}>{service.detail}</p>
             </div>
 
-            <div className="service-detail-grid">
-              <section className="detail-panel" aria-labelledby="topics-title">
-                <p className="eyebrow">WHAT I&apos;M LEARNING</p>
-                <h2 id="topics-title">Topics I&apos;m exploring</h2>
-                <ul className="learning-list">
+            <div className={styles.detailGrid}>
+              <section className={styles.detailPanel} aria-labelledby="topics-title">
+                <p className={styles.eyebrow}>WHAT I&apos;M LEARNING</p>
+                <h2 className={styles.detailPanelTitle} id="topics-title">Topics I&apos;m exploring</h2>
+                <ul className={styles.learningList}>
                   {service.topics.map((topic) => (
-                    <li key={topic}><span aria-hidden="true">↗</span>{topic}</li>
+                    <li className={styles.learningItem} key={topic}><span className="text-urban-slate" aria-hidden="true">↗</span>{topic}</li>
                   ))}
                 </ul>
               </section>
-              <aside className="practice-panel">
-                <span className="practice-icon" aria-hidden="true">✦</span>
-                <p className="eyebrow">PRACTICE IDEA</p>
-                <h2>A way to put it into practice</h2>
-                <p>{service.practice}</p>
-                <p className="practice-note">This is a learning goal, not a claim of completed professional work.</p>
+              <aside className={styles.practicePanel}>
+                <span className={styles.practiceIcon} aria-hidden="true">✦</span>
+                <p className={styles.eyebrow}>PRACTICE IDEA</p>
+                <h2 className={styles.detailPanelTitle}>A way to put it into practice</h2>
+                <p className={styles.practiceText}>{service.practice}</p>
+                <p className={styles.practiceNote}>This is a learning goal, not a claim of completed professional work.</p>
               </aside>
             </div>
 
-            <div className="service-detail-footer">
-              <p>Interested in discussing this area?</p>
-              <a className="button button-primary" href="/contact">Get in touch <span aria-hidden="true">↗</span></a>
+            <div className={styles.detailFooter}>
+              <p className="text-[11px] text-urban-slate">Interested in discussing this area?</p>
+              <a className={`${styles.button} ${styles.primaryButton}`} href="/contact">Get in touch <span aria-hidden="true">↗</span></a>
             </div>
 
-            <nav className="other-services" aria-label="Other areas of interest">
-              <p className="detail-label">EXPLORE OTHER AREAS</p>
-              <div>
+            <nav className={styles.otherServices} aria-label="Other areas of interest">
+              <p className={styles.detailLabel}>EXPLORE OTHER AREAS</p>
+              <div className={styles.otherServiceList}>
                 {services.filter((item) => item.slug !== service.slug).map((item) => (
-                  <a key={item.slug} href={`/services/${item.slug}`}>{item.title}<span aria-hidden="true">↗</span></a>
+                  <a className={styles.otherServiceLink} key={item.slug} href={`/services/${item.slug}`}>{item.title}<span className="text-urban-slate" aria-hidden="true">↗</span></a>
                 ))}
               </div>
             </nav>

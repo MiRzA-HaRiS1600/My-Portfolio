@@ -1,8 +1,9 @@
 # Mirza Haris Amin — Portfolio
 
 A responsive portfolio for Mirza Haris Amin, a BS Computer Science student. It
-uses a luxury charcoal-and-brass visual direction and includes a home page,
-services, concept projects, FAQs, and contact details.
+uses a light Urban Chic visual direction with ivory, blush, slate, and midnight
+tones, and includes a home page, services, concept projects, FAQs, and contact
+details.
 
 ## Stack
 
@@ -53,4 +54,9 @@ npm run build
   and `src/components/interactive.tsx`.
 - Adjust shared navigation and footer links in `src/components/interactive.tsx`
   and `src/components/site-frame.tsx`.
-- Refine the theme and responsive layout in `src/app/luxury.css`.
+- Refine Tailwind utility classes in `src/components/tailwind-styles.ts` and
+  Urban Chic color tokens in `tailwind.config.ts`.
+
+The interface is styled with Tailwind utilities. `src/app/project-art.css` is
+limited to the decorative miniature project-preview illustrations, while
+`src/app/globals.css` provides Tailwind layers and browser-level defaults.

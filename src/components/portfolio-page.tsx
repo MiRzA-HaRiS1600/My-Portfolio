@@ -1,5 +1,6 @@
 import { ContactForm } from "~/components/interactive";
 import { SiteFrame } from "~/components/site-frame";
+import { styles } from "~/components/tailwind-styles";
 import { projects } from "~/data/projects";
 import { services } from "~/data/services";
 
@@ -7,7 +8,7 @@ export type PortfolioPageName = "home" | "services" | "portfolio" | "faq" | "con
 
 function ServiceIcon({ name }: { name: (typeof services)[number]["icon"] }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24">
+    <svg className={styles.serviceIconSvg} aria-hidden="true" viewBox="0 0 24 24">
       {name === "web" && (
         <>
           <rect x="3" y="4" width="18" height="16" rx="2" />
@@ -100,60 +101,60 @@ export default function PortfolioPage({ page }: { page: PortfolioPageName }) {
       <main id="main">
         {isHome && (
           <>
-            <section className="hero" id="home" aria-labelledby="hero-title">
-              <div className="hero-grid container">
-                <div className="hero-copy">
-                  <p className="eyebrow"><span className="status-dot" /> BS COMPUTER SCIENCE STUDENT</p>
-                  <h1 id="hero-title">Mirza Haris<br /><span className="gradient-text">Amin.</span></h1>
-                  <p className="hero-subtitle">Curious by nature. Building for what&apos;s next.</p>
-                  <p className="hero-description">
+            <section className={styles.hero} id="home" aria-labelledby="hero-title">
+              <div className={styles.heroGrid}>
+                <div className={styles.heroCopy}>
+                  <p className={styles.heroStatus}><span className={styles.statusDot} /> BS COMPUTER SCIENCE STUDENT</p>
+                  <h1 className={styles.heroTitle} id="hero-title">Mirza Haris<br /><span className={styles.gradientText}>Amin.</span></h1>
+                  <p className={styles.heroSubtitle}>Curious by nature. Building for what&apos;s next.</p>
+                  <p className={styles.heroDescription}>
                     I&apos;m a BSCS student with a growing interest in web development, thoughtful design, and turning ideas into useful digital experiences.
                   </p>
-                  <div className="hero-actions">
-                    <a className="button button-primary" href="/contact">Let&apos;s talk <span aria-hidden="true">↗</span></a>
-                    <a className="button button-secondary" href="/#portfolio">Explore my work <span aria-hidden="true">↓</span></a>
+                  <div className={styles.heroActions}>
+                    <a className={`${styles.button} ${styles.primaryButton}`} href="/contact">Let&apos;s talk <span aria-hidden="true">↗</span></a>
+                    <a className={`${styles.button} ${styles.secondaryButton}`} href="/#portfolio">Explore my work <span aria-hidden="true">↓</span></a>
                   </div>
-                  <div className="hero-meta"><span className="meta-line" /> Learning with intention. Building one idea at a time.</div>
+                  <div className={styles.heroMeta}><span className="h-px w-8 bg-urban-slate/50" /> Learning with intention. Building one idea at a time.</div>
                 </div>
-                <div className="hero-visual" aria-label="Decorative monogram artwork">
-                  <div className="hero-art">
-                    <span className="art-index">PORTFOLIO · 2026</span>
-                    <span className="art-orbit art-orbit-one" />
-                    <span className="art-orbit art-orbit-two" />
-                    <span className="art-monogram">HA</span>
-                    <span className="art-caption">MIRZA HARIS AMIN<br /><small>COMPUTER SCIENCE · WEB</small></span>
-                    <span className="art-seal" aria-hidden="true">✳</span>
+                <div className={styles.heroVisual} aria-label="Decorative monogram artwork">
+                  <div className={styles.heroArt}>
+                    <span className={styles.artIndex}>PORTFOLIO · 2026</span>
+                    <span className={styles.artOrbit} />
+                    <span className={styles.artOrbitInner} />
+                    <span className={styles.artMonogram}>HA</span>
+                    <span className={styles.artCaption}>MIRZA HARIS AMIN<br /><small className={styles.artCaptionSmall}>COMPUTER SCIENCE · WEB</small></span>
+                    <span className={`${styles.artSeal} -translate-y-1/2`} aria-hidden="true">✳</span>
                   </div>
-                  <span className="hero-index"><span>01</span><span className="index-rule" /><span>INTRODUCTION</span></span>
+                  <span className={styles.heroIndex}><span className="font-display text-xs text-urban-midnight">01</span><span className="h-px w-7 bg-urban-slate/50" /><span>INTRODUCTION</span></span>
                 </div>
               </div>
-              <a className="scroll-cue" href="/#services"><span className="scroll-mouse" /> DISCOVER MORE <span aria-hidden="true">↓</span></a>
+              <a className={styles.scrollCue} href="/#services"><span className="h-[17px] w-3 rounded-full border border-urban-blush" /> DISCOVER MORE <span aria-hidden="true">↓</span></a>
             </section>
-            <section className="intro-strip" aria-label="About Mirza">
-              <div className="container intro-strip-inner">
-                <span className="detail-label">A LITTLE ABOUT ME</span>
-                <p>Currently studying computer science and developing practical skills through curiosity, coursework, and personal projects.</p>
-                <a className="text-link" href="/services">What I&apos;m learning <span aria-hidden="true">↗</span></a>
+            <section className={styles.intro} aria-label="About Mirza">
+              <div className={styles.introGrid}>
+                <span className={styles.introTitle}>A LITTLE ABOUT ME</span>
+                <p className={styles.introText}>Currently studying computer science and developing practical skills through curiosity, coursework, and personal projects.</p>
+                <a className="text-xs font-semibold tracking-wide text-urban-slate transition hover:text-urban-midnight" href="/services">What I&apos;m learning <span className="text-urban-slate" aria-hidden="true">↗</span></a>
               </div>
             </section>
           </>
         )}
 
         {showServices && (
-          <section className="section services-section" id="services" aria-labelledby="services-title">
-            <div className="container">
-              <div className="section-heading">
-                <div><p className="eyebrow">FOUNDATIONS IN PROGRESS</p><h2 id="services-title">Areas of <span className="gradient-text">interest.</span></h2></div>
-                <p className="section-intro">A thoughtful start in the craft of building for the web. These are skills I&apos;m actively developing through study and practice.</p>
+          <section className={`${styles.section} ${styles.servicesSection}`} id="services" aria-labelledby="services-title">
+            <div className={styles.container}>
+              <div className={styles.sectionHeading}>
+                <div><p className={styles.eyebrow}>FOUNDATIONS IN PROGRESS</p><h2 className={styles.sectionTitle} id="services-title">Areas of <span className={styles.gradientText}>interest.</span></h2></div>
+                <p className={styles.sectionIntro}>A thoughtful start in the craft of building for the web. These are skills I&apos;m actively developing through study and practice.</p>
               </div>
-              <div className="services-grid">
+              <div className={styles.serviceGrid}>
                 {services.map((service) => (
-                  <a className="service-card" key={service.number} href={`/services/${service.slug}`} aria-label={`Explore ${service.title}`}>
-                    <div className={`service-icon icon-${service.icon}`}><ServiceIcon name={service.icon} /></div>
-                    <span className="card-number">{service.number}</span>
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-                    <span className="card-arrow" aria-hidden="true">↗</span>
+                  <a className={styles.serviceCard} key={service.number} href={`/services/${service.slug}`} aria-label={`Explore ${service.title}`}>
+                    <div className={styles.serviceIcon}><ServiceIcon name={service.icon} /></div>
+                    <span className={styles.cardNumber}>{service.number}</span>
+                    <h3 className={styles.cardTitle}>{service.title}</h3>
+                    <p className={styles.cardDescription}>{service.description}</p>
+                    <span className={styles.cardArrow} aria-hidden="true">↗</span>
                   </a>
                 ))}
               </div>
@@ -162,51 +163,51 @@ export default function PortfolioPage({ page }: { page: PortfolioPageName }) {
         )}
 
         {showPortfolio && (
-          <section className="section portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
-            <div className="container">
-              <div className="section-heading">
-                <div><p className="eyebrow">A PRACTICE OF MAKING</p><h2 id="portfolio-title">Selected <span className="gradient-text">concepts.</span></h2></div>
-                <p className="section-intro">Early-stage ideas and exercises that reflect what I&apos;m learning. Each is labeled honestly; more original work will be added as it&apos;s ready.</p>
+          <section className={`${styles.section} ${styles.portfolioSection}`} id="portfolio" aria-labelledby="portfolio-title">
+            <div className={styles.container}>
+              <div className={styles.sectionHeading}>
+                <div><p className={styles.eyebrow}>A PRACTICE OF MAKING</p><h2 className={styles.sectionTitle} id="portfolio-title">Selected <span className={styles.gradientText}>concepts.</span></h2></div>
+                <p className={styles.sectionIntro}>Early-stage ideas and exercises that reflect what I&apos;m learning. Each is labeled honestly; more original work will be added as it&apos;s ready.</p>
               </div>
-              <div className="projects-grid">
+              <div className={styles.projectGrid}>
                 {projects.map((project) => (
-                  <article className="project-card" key={project.number}>
-                    <div className="project-preview">
+                  <article className={styles.projectCard} key={project.number}>
+                    <div className={styles.projectPreview}>
                       <ProjectPreview type={project.preview} />
-                      <span className="sample-label">STUDENT CONCEPT</span>
+                      <span className={styles.sampleLabel}>STUDENT CONCEPT</span>
                     </div>
-                    <div className="project-content">
-                      <div className="project-topline"><span>{project.number} / {project.type}</span><span className="project-status">Concept</span></div>
-                      <h3><a className="project-title-link" href={`/portfolio/${project.slug}`}>{project.title}</a></h3>
-                      <p>{project.description}</p>
-                      <div className="tech-list">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
-                      <div className="project-actions">
-                        <a className="button button-primary project-action" href={`/portfolio/${project.slug}`}>Explore concept <span aria-hidden="true">↗</span></a>
-                        <a className="button button-secondary project-action" href={`/portfolio/${project.slug}#source-code`}>Project notes <span aria-hidden="true">↘</span></a>
+                    <div className={styles.projectContent}>
+                      <div className={styles.projectTopline}><span>{project.number} / {project.type}</span><span className={styles.projectStatus}>Concept</span></div>
+                      <h3 className="mb-2"><a className={styles.projectTitle} href={`/portfolio/${project.slug}`}>{project.title}</a></h3>
+                      <p className={styles.projectDescription}>{project.description}</p>
+                      <div className={styles.chipList}>{project.technologies.map((tech) => <span className={styles.chip} key={tech}>{tech}</span>)}</div>
+                      <div className={styles.projectActions}>
+                        <a className={`${styles.button} ${styles.primaryButton} ${styles.projectAction}`} href={`/portfolio/${project.slug}`}>Explore concept <span aria-hidden="true">↗</span></a>
+                        <a className={`${styles.button} ${styles.secondaryButton} ${styles.projectAction}`} href={`/portfolio/${project.slug}#source-code`}>Project notes <span aria-hidden="true">↘</span></a>
                       </div>
                     </div>
                   </article>
                 ))}
               </div>
-              <p className="projects-note"><span aria-hidden="true">✳</span> Concepts for learning — not completed client work.</p>
+              <p className={styles.note}><span className="text-urban-slate" aria-hidden="true">✳</span> Concepts for learning — not completed client work.</p>
             </div>
           </section>
         )}
 
         {showFaqs && (
-          <section className="section faq-section" id="faq" aria-labelledby="faq-title">
-            <div className="container faq-layout">
-              <div className="faq-heading">
-                <p className="eyebrow">A FEW THINGS TO KNOW</p>
-                <h2 id="faq-title">Frequently<br /><span className="gradient-text">asked.</span></h2>
-                <p className="section-intro">A little more about my studies, projects, and how to reach me.</p>
-                <a className="text-link" href="/faq">View all FAQs <span aria-hidden="true">↗</span></a>
+          <section className={`${styles.section} ${styles.faqSection}`} id="faq" aria-labelledby="faq-title">
+            <div className={`${styles.container} ${styles.faqLayout}`}>
+              <div>
+                <p className={styles.eyebrow}>A FEW THINGS TO KNOW</p>
+                <h2 className={`${styles.faqHeading} mb-5`} id="faq-title">Frequently<br /><span className={styles.gradientText}>asked.</span></h2>
+                <p className={`${styles.sectionIntro} mb-6`}>A little more about my studies, projects, and how to reach me.</p>
+                <a className="text-xs font-semibold tracking-wide text-urban-slate transition hover:text-urban-midnight" href="/faq">View all FAQs <span className="text-urban-slate" aria-hidden="true">↗</span></a>
               </div>
-              <div className="faq-list">
+              <div className={styles.faqList}>
                 {faqs.map((faq) => (
-                  <details className="faq-item" key={faq.question}>
-                    <summary>{faq.question}<span aria-hidden="true">+</span></summary>
-                    <p>{faq.answer}</p>
+                  <details className={styles.faqItem} key={faq.question}>
+                    <summary className={styles.faqQuestion}>{faq.question}<span className="text-xl text-urban-blush transition group-open:rotate-45" aria-hidden="true">+</span></summary>
+                    <p className={styles.faqAnswer}>{faq.answer}</p>
                   </details>
                 ))}
               </div>
@@ -215,16 +216,16 @@ export default function PortfolioPage({ page }: { page: PortfolioPageName }) {
         )}
 
         {(isHome || page === "contact") && (
-          <section className="section contact-section" id="contact" aria-labelledby="contact-title">
-            <div className="container">
-              <div className="contact-panel">
-                <div className="contact-copy">
-                  <p className="eyebrow">GOOD THINGS START WITH A CONVERSATION</p>
-                  <h2 id="contact-title">Have an idea?<br /><span className="gradient-text">Let&apos;s connect.</span></h2>
-                  <p>I&apos;m open to connecting with fellow students, exchanging ideas, and hearing about interesting opportunities.</p>
-                  <div className="contact-details">
-                    <span className="detail-label">WRITE TO ME</span>
-                    <a className="email-link" href="mailto:harismughal1600@gmail.com">harismughal1600@gmail.com <span aria-hidden="true">↗</span></a>
+          <section className={`${styles.section} ${styles.contactSection}`} id="contact" aria-labelledby="contact-title">
+            <div className={styles.container}>
+              <div className={styles.contactPanel}>
+                <div>
+                  <p className={styles.eyebrow}>GOOD THINGS START WITH A CONVERSATION</p>
+                  <h2 className={styles.contactTitle} id="contact-title">Have an idea?<br /><span className={styles.gradientText}>Let&apos;s connect.</span></h2>
+                  <p className={styles.contactCopy}>I&apos;m open to connecting with fellow students, exchanging ideas, and hearing about interesting opportunities.</p>
+                  <div className={styles.contactDetails}>
+                    <span className={styles.detailLabel}>WRITE TO ME</span>
+                    <a className={styles.emailLink} href="mailto:harismughal1600@gmail.com">harismughal1600@gmail.com <span aria-hidden="true">↗</span></a>
                   </div>
                 </div>
                 <ContactForm />

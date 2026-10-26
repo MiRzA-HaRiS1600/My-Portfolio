@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SiteFrame } from "~/components/site-frame";
+import { styles } from "~/components/tailwind-styles";
 import { projects } from "~/data/projects";
 
 type ProjectPageProps = {
@@ -34,38 +35,38 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   return (
     <SiteFrame>
       <main id="main">
-        <section className="section project-detail-section" aria-labelledby="project-title">
-          <div className="container project-detail-container">
-            <a className="back-link" href="/portfolio"><span aria-hidden="true">←</span> All sample projects</a>
-            <p className="eyebrow"><span>{project.number}</span> SAMPLE CONCEPT · NOT COMPLETED WORK</p>
-            <h1 id="project-title">{project.title}<span className="gradient-text">.</span></h1>
-            <p className="project-detail-lead">{project.overview}</p>
+        <section className={styles.detailSection} aria-labelledby="project-title">
+          <div className={`${styles.detailContainer} !max-w-[900px]`}>
+            <a className={styles.backLink} href="/portfolio"><span aria-hidden="true">←</span> All sample projects</a>
+            <p className={styles.eyebrow}><span>{project.number}</span> SAMPLE CONCEPT · NOT COMPLETED WORK</p>
+            <h1 className={styles.detailTitle} id="project-title">{project.title}<span className={styles.gradientText}>.</span></h1>
+            <p className={`${styles.detailLead} mb-8 max-w-[700px]`}>{project.overview}</p>
 
-            <section className="project-brief" aria-labelledby="brief-title">
-              <p className="eyebrow">PROJECT BRIEF</p>
-              <h2 id="brief-title">Ideas this concept explores</h2>
-              <ul className="learning-list">
+            <section className={styles.projectBrief} aria-labelledby="brief-title">
+              <p className={styles.eyebrow}>PROJECT BRIEF</p>
+              <h2 className={styles.detailPanelTitle} id="brief-title">Ideas this concept explores</h2>
+              <ul className={styles.learningList}>
                 {project.goals.map((goal) => (
-                  <li key={goal}><span aria-hidden="true">↗</span>{goal}</li>
+                  <li className={styles.learningItem} key={goal}><span className="text-urban-slate" aria-hidden="true">↗</span>{goal}</li>
                 ))}
               </ul>
-              <div className="tech-list project-detail-tech">
-                {project.technologies.map((technology) => <span key={technology}>{technology}</span>)}
+              <div className={`${styles.chipList} mt-6`}>
+                {project.technologies.map((technology) => <span className={styles.chip} key={technology}>{technology}</span>)}
               </div>
             </section>
 
-            <section className="source-status" id="source-code" aria-labelledby="source-title">
-              <div>
-                <p className="eyebrow">SOURCE CODE</p>
-                <h2 id="source-title">No repository is published for this sample yet.</h2>
-                <p>This is an example concept to be replaced with real work. There is no project source-code link to share at this time.</p>
+            <section className={styles.sourceStatus} id="source-code" aria-labelledby="source-title">
+              <div className={styles.sourceCopy}>
+                <p className={styles.eyebrow}>SOURCE CODE</p>
+                <h2 className={`${styles.detailPanelTitle} mb-2`} id="source-title">No repository is published for this sample yet.</h2>
+                <p className="text-xs leading-6 text-urban-slate">This is an example concept to be replaced with real work. There is no project source-code link to share at this time.</p>
               </div>
-              <a className="button button-secondary" href="/contact">Ask me about this concept <span aria-hidden="true">↗</span></a>
+              <a className={`${styles.button} ${styles.secondaryButton}`} href="/contact">Ask me about this concept <span aria-hidden="true">↗</span></a>
             </section>
 
-            <div className="project-detail-footer">
-              <a className="button button-primary" href="/portfolio">Back to Portfolio <span aria-hidden="true">↗</span></a>
-              <a className="text-link" href="/contact">Get in touch <span aria-hidden="true">↗</span></a>
+            <div className={styles.detailActions}>
+              <a className={`${styles.button} ${styles.primaryButton}`} href="/portfolio">Back to Portfolio <span aria-hidden="true">↗</span></a>
+              <a className="text-xs font-semibold text-urban-slate transition hover:text-urban-midnight" href="/contact">Get in touch <span className="text-urban-slate" aria-hidden="true">↗</span></a>
             </div>
           </div>
         </section>
