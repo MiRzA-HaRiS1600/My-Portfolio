@@ -3,7 +3,7 @@ import { SiteFrame } from "~/components/site-frame";
 import { projects } from "~/data/projects";
 import { services } from "~/data/services";
 
-export type PortfolioPageName = "home" | "services" | "portfolio" | "contact";
+export type PortfolioPageName = "home" | "services" | "portfolio" | "faq" | "contact";
 
 function ServiceIcon({ name }: { name: (typeof services)[number]["icon"] }) {
   return (
@@ -66,123 +66,171 @@ function ProjectPreview({ type }: { type: (typeof projects)[number]["preview"] }
   );
 }
 
+const faqs = [
+  {
+    question: "Who is Mirza Haris Amin?",
+    answer:
+      "I am a Bachelor of Science in Computer Science student, exploring web development, programming, and the ideas behind useful digital products."
+  },
+  {
+    question: "Are the projects shown here completed client projects?",
+    answer:
+      "No. The projects currently shown are sample concepts for learning and portfolio presentation. They are labeled clearly and are not represented as client work."
+  },
+  {
+    question: "What kind of work are you interested in?",
+    answer:
+      "I am interested in front-end development, responsive website design, and small web projects that help me practice and grow my skills."
+  },
+  {
+    question: "How can I get in touch?",
+    answer:
+      "Use the contact form to prepare an email, or write directly to harismughal1600@gmail.com. The form opens your email app; it does not send data to a website backend."
+  }
+];
+
 export default function PortfolioPage({ page }: { page: PortfolioPageName }) {
+  const isHome = page === "home";
+  const showServices = isHome || page === "services";
+  const showPortfolio = isHome || page === "portfolio";
+  const showFaqs = isHome || page === "faq";
+
   return (
     <SiteFrame>
       <main id="main">
-        {page === "home" && (
-        <section className="hero section" id="home" aria-labelledby="hero-title">
-          <div className="hero-glow glow-one" />
-          <div className="hero-glow glow-two" />
-          <div className="container hero-grid">
-            <div className="hero-copy">
-              <p className="eyebrow"><span className="status-dot" /> BSCS STUDENT &amp; TECH ENTHUSIAST</p>
-              <h1 id="hero-title">Mirza Haris<br /><span className="gradient-text">Amin.</span></h1>
-              <p className="hero-subtitle">Aspiring Web Developer &amp; Computer Science Student</p>
-              <p className="hero-intro">Hi, I&apos;m Mirza Haris Amin, a BSCS student passionate about technology, programming, and web development.</p>
-              <p className="hero-description">I enjoy learning new technologies and creating useful digital solutions. I&apos;m building my skills one project at a time and always curious about what I can make next.</p>
-              <div className="hero-actions">
-                <a className="button button-primary" href="/contact">Hire Me <span aria-hidden="true">↗</span></a>
-                <a className="button button-secondary" href="/portfolio"><span className="play-icon" aria-hidden="true">↘</span> View My Work</a>
-              </div>
-              <div className="hero-meta"><span className="meta-line" /> Curious mind. Growing skills. Thoughtful work.</div>
-            </div>
-            <div className="hero-visual">
-              <div className="portrait-frame">
-                <div className="portrait-orbit orbit-a" />
-                <div className="portrait-orbit orbit-b" />
-                <div className="portrait-card" role="img" aria-label="Profile photo placeholder for Mirza Haris Amin">
-                  <div className="portrait-shine" />
-                  <div className="portrait-initials">HA</div>
-                  <div className="portrait-caption"><span>YOUR PHOTO HERE</span><small>Replace this placeholder with your image</small></div>
-                </div>
-                <div className="floating-chip chip-code"><span aria-hidden="true">&lt;/&gt;</span> Building skills</div>
-                <div className="floating-chip chip-spark"><span aria-hidden="true">✦</span> Always learning</div>
-              </div>
-              <div className="hero-index"><span>01</span><span className="index-rule" /><span>INTRODUCTION</span></div>
-            </div>
-          </div>
-          <a className="scroll-cue" href="/services"><span className="scroll-mouse" /> EXPLORE SERVICES <span aria-hidden="true">↗</span></a>
-        </section>
-        )}
-
-        {page === "services" && (
-        <section className="section services-section" id="services" aria-labelledby="services-title">
-          <div className="container">
-            <div className="section-heading">
-              <div><p className="eyebrow">WHAT I&apos;M EXPLORING</p><h2 id="services-title">Areas of <span className="gradient-text">interest.</span></h2></div>
-              <p className="section-intro">These are skills I&apos;m actively developing through study and practice—not claims of professional experience.</p>
-            </div>
-            <div className="services-grid">
-              {services.map((service) => (
-                <a
-                  className="service-card"
-                  key={service.number}
-                  href={`/services/${service.slug}`}
-                  aria-label={`Explore ${service.title}`}
-                >
-                  <div className={`service-icon icon-${service.icon}`}><ServiceIcon name={service.icon} /></div>
-                  <span className="card-number">{service.number}</span>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <span className="card-arrow" aria-hidden="true">↗</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-        )}
-
-        {page === "portfolio" && (
-        <section className="section portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
-          <div className="container">
-            <div className="section-heading">
-              <div><p className="eyebrow">LEARNING BY MAKING</p><h2 id="portfolio-title">Selected <span className="gradient-text">projects.</span></h2></div>
-              <p className="section-intro">Sample project concepts to show the kind of work I&apos;m learning to build. Replace these with your real projects as they&apos;re ready.</p>
-            </div>
-            <div className="projects-grid">
-              {projects.map((project) => (
-                <article className="project-card" key={project.number}>
-                  <div className="project-preview">
-                    <ProjectPreview type={project.preview} />
-                    <span className="sample-label">SAMPLE CONCEPT</span>
+        {isHome && (
+          <>
+            <section className="hero" id="home" aria-labelledby="hero-title">
+              <div className="hero-grid container">
+                <div className="hero-copy">
+                  <p className="eyebrow"><span className="status-dot" /> BS COMPUTER SCIENCE STUDENT</p>
+                  <h1 id="hero-title">Mirza Haris<br /><span className="gradient-text">Amin.</span></h1>
+                  <p className="hero-subtitle">Curious by nature. Building for what&apos;s next.</p>
+                  <p className="hero-description">
+                    I&apos;m a BSCS student with a growing interest in web development, thoughtful design, and turning ideas into useful digital experiences.
+                  </p>
+                  <div className="hero-actions">
+                    <a className="button button-primary" href="/contact">Let&apos;s talk <span aria-hidden="true">↗</span></a>
+                    <a className="button button-secondary" href="/#portfolio">Explore my work <span aria-hidden="true">↓</span></a>
                   </div>
-                  <div className="project-content">
-                    <div className="project-topline"><span>{project.number} / {project.type}</span><span className="project-status">Concept</span></div>
-                    <h3><a className="project-title-link" href={`/portfolio/${project.slug}`}>{project.title}</a></h3>
-                    <p>{project.description}</p>
-                    <div className="tech-list">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
-                    <div className="project-actions">
-                      <a className="button button-primary project-action" href={`/portfolio/${project.slug}`}>View Project <span aria-hidden="true">↗</span></a>
-                      <a className="button button-secondary project-action" href={`/portfolio/${project.slug}#source-code`}>Source Code <span aria-hidden="true">↘</span></a>
+                  <div className="hero-meta"><span className="meta-line" /> Learning with intention. Building one idea at a time.</div>
+                </div>
+                <div className="hero-visual" aria-label="Decorative monogram artwork">
+                  <div className="hero-art">
+                    <span className="art-index">PORTFOLIO · 2026</span>
+                    <span className="art-orbit art-orbit-one" />
+                    <span className="art-orbit art-orbit-two" />
+                    <span className="art-monogram">HA</span>
+                    <span className="art-caption">MIRZA HARIS AMIN<br /><small>COMPUTER SCIENCE · WEB</small></span>
+                    <span className="art-seal" aria-hidden="true">✳</span>
+                  </div>
+                  <span className="hero-index"><span>01</span><span className="index-rule" /><span>INTRODUCTION</span></span>
+                </div>
+              </div>
+              <a className="scroll-cue" href="/#services"><span className="scroll-mouse" /> DISCOVER MORE <span aria-hidden="true">↓</span></a>
+            </section>
+            <section className="intro-strip" aria-label="About Mirza">
+              <div className="container intro-strip-inner">
+                <span className="detail-label">A LITTLE ABOUT ME</span>
+                <p>Currently studying computer science and developing practical skills through curiosity, coursework, and personal projects.</p>
+                <a className="text-link" href="/services">What I&apos;m learning <span aria-hidden="true">↗</span></a>
+              </div>
+            </section>
+          </>
+        )}
+
+        {showServices && (
+          <section className="section services-section" id="services" aria-labelledby="services-title">
+            <div className="container">
+              <div className="section-heading">
+                <div><p className="eyebrow">FOUNDATIONS IN PROGRESS</p><h2 id="services-title">Areas of <span className="gradient-text">interest.</span></h2></div>
+                <p className="section-intro">A thoughtful start in the craft of building for the web. These are skills I&apos;m actively developing through study and practice.</p>
+              </div>
+              <div className="services-grid">
+                {services.map((service) => (
+                  <a className="service-card" key={service.number} href={`/services/${service.slug}`} aria-label={`Explore ${service.title}`}>
+                    <div className={`service-icon icon-${service.icon}`}><ServiceIcon name={service.icon} /></div>
+                    <span className="card-number">{service.number}</span>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <span className="card-arrow" aria-hidden="true">↗</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {showPortfolio && (
+          <section className="section portfolio-section" id="portfolio" aria-labelledby="portfolio-title">
+            <div className="container">
+              <div className="section-heading">
+                <div><p className="eyebrow">A PRACTICE OF MAKING</p><h2 id="portfolio-title">Selected <span className="gradient-text">concepts.</span></h2></div>
+                <p className="section-intro">Early-stage ideas and exercises that reflect what I&apos;m learning. Each is labeled honestly; more original work will be added as it&apos;s ready.</p>
+              </div>
+              <div className="projects-grid">
+                {projects.map((project) => (
+                  <article className="project-card" key={project.number}>
+                    <div className="project-preview">
+                      <ProjectPreview type={project.preview} />
+                      <span className="sample-label">STUDENT CONCEPT</span>
                     </div>
-                  </div>
-                </article>
-              ))}
+                    <div className="project-content">
+                      <div className="project-topline"><span>{project.number} / {project.type}</span><span className="project-status">Concept</span></div>
+                      <h3><a className="project-title-link" href={`/portfolio/${project.slug}`}>{project.title}</a></h3>
+                      <p>{project.description}</p>
+                      <div className="tech-list">{project.technologies.map((tech) => <span key={tech}>{tech}</span>)}</div>
+                      <div className="project-actions">
+                        <a className="button button-primary project-action" href={`/portfolio/${project.slug}`}>Explore concept <span aria-hidden="true">↗</span></a>
+                        <a className="button button-secondary project-action" href={`/portfolio/${project.slug}#source-code`}>Project notes <span aria-hidden="true">↘</span></a>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+              <p className="projects-note"><span aria-hidden="true">✳</span> Concepts for learning — not completed client work.</p>
             </div>
-            <p className="projects-note"><span aria-hidden="true">✦</span> All projects above are examples, not completed client work. Add your real project links when available.</p>
-          </div>
-        </section>
+          </section>
         )}
 
-        {page === "contact" && (
-        <section className="section contact-section" id="contact" aria-labelledby="contact-title">
-          <div className="container">
-            <div className="contact-panel">
-              <div className="contact-copy">
-                <p className="eyebrow">HAVE A QUESTION OR IDEA?</p>
-                <h2 id="contact-title">Let&apos;s make<br /><span className="gradient-text">something useful.</span></h2>
-                <p>I&apos;m open to connecting, learning from others, and discussing ideas. Send me a note and I&apos;ll get back to you.</p>
-                <div className="contact-details">
-                  <span className="detail-label">EMAIL ME AT</span>
-                  <a className="email-link" href="mailto:harismughal1600@gmail.com">harismughal1600@gmail.com <span aria-hidden="true">↗</span></a>
-                  <div className="social-links"><span className="detail-label">FIND ME ONLINE</span><span className="social-placeholder">Social links can be added here</span></div>
-                </div>
+        {showFaqs && (
+          <section className="section faq-section" id="faq" aria-labelledby="faq-title">
+            <div className="container faq-layout">
+              <div className="faq-heading">
+                <p className="eyebrow">A FEW THINGS TO KNOW</p>
+                <h2 id="faq-title">Frequently<br /><span className="gradient-text">asked.</span></h2>
+                <p className="section-intro">A little more about my studies, projects, and how to reach me.</p>
+                <a className="text-link" href="/faq">View all FAQs <span aria-hidden="true">↗</span></a>
               </div>
-              <ContactForm />
+              <div className="faq-list">
+                {faqs.map((faq) => (
+                  <details className="faq-item" key={faq.question}>
+                    <summary>{faq.question}<span aria-hidden="true">+</span></summary>
+                    <p>{faq.answer}</p>
+                  </details>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {(isHome || page === "contact") && (
+          <section className="section contact-section" id="contact" aria-labelledby="contact-title">
+            <div className="container">
+              <div className="contact-panel">
+                <div className="contact-copy">
+                  <p className="eyebrow">GOOD THINGS START WITH A CONVERSATION</p>
+                  <h2 id="contact-title">Have an idea?<br /><span className="gradient-text">Let&apos;s connect.</span></h2>
+                  <p>I&apos;m open to connecting with fellow students, exchanging ideas, and hearing about interesting opportunities.</p>
+                  <div className="contact-details">
+                    <span className="detail-label">WRITE TO ME</span>
+                    <a className="email-link" href="mailto:harismughal1600@gmail.com">harismughal1600@gmail.com <span aria-hidden="true">↗</span></a>
+                  </div>
+                </div>
+                <ContactForm />
+              </div>
+            </div>
+          </section>
         )}
       </main>
     </SiteFrame>

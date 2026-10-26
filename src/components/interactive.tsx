@@ -7,6 +7,7 @@ const links = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "FAQs", href: "/faq" },
   { label: "Contact", href: "/contact" }
 ];
 
@@ -25,7 +26,7 @@ export function SiteNav() {
   return (
     <nav className="nav container" aria-label="Main navigation">
       <a className="brand" href="/" aria-label="Mirza Haris Amin, home">
-        <span className="brand-mark">H</span><span>Haris<span className="brand-dot">.</span></span>
+        <span className="brand-mark">MHA</span><span>Mirza Haris Amin<span className="brand-dot">.</span></span>
       </a>
       <button
         className="menu-toggle"
