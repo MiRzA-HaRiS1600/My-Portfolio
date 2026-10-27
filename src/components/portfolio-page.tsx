@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ContactForm } from "~/components/interactive";
 import { SiteFrame } from "~/components/site-frame";
 import { styles } from "~/components/tailwind-styles";
@@ -117,16 +116,9 @@ export default function PortfolioPage({ page }: { page: PortfolioPageName }) {
                   </div>
                   <div className={styles.heroMeta}><span className="h-px w-8 bg-urban-slate/50" /> Learning with intention. Building one idea at a time.</div>
                 </div>
-                <div className={styles.heroVisual} aria-label="Mirza Haris Amin logo">
+                <div className={styles.heroVisual} aria-label="Portfolio introduction artwork">
                   <div className={styles.heroArt}>
                     <span className={styles.artIndex}>PORTFOLIO · 2026</span>
-                    <Image
-                      className={styles.artLogo}
-                      src="/images/mirza-haris-amin-logo.png"
-                      alt="Mirza Haris Amin monogram logo"
-                      width={768}
-                      height={768}
-                    />
                     <span className={styles.artCaption}>MIRZA HARIS AMIN<br /><small className={styles.artCaptionSmall}>COMPUTER SCIENCE · WEB</small></span>
                     <span className={`${styles.artSeal} -translate-y-1/2`} aria-hidden="true">✳</span>
                   </div>

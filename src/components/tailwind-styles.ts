@@ -16,9 +16,7 @@ export const styles = {
   header:
     "sticky top-0 z-50 border-b border-urban-blush/40 bg-urban-ivory/95 backdrop-blur-xl",
   nav: "relative mx-auto flex h-[70px] w-[calc(100%-2rem)] max-w-[1180px] items-center justify-between sm:w-[calc(100%-3rem)] md:h-[82px]",
-  brand: "inline-flex items-center gap-3 font-display text-base text-urban-midnight",
-  brandMark:
-    "relative grid size-10 shrink-0 place-items-center overflow-hidden rounded-full bg-urban-ivory",
+  brand:   "inline-flex items-center font-display text-base text-urban-midnight",
   navToggle:
     "flex size-11 flex-col items-center justify-center gap-[5px] rounded border border-urban-slate/30 bg-transparent md:hidden",
   navToggleBar: "h-px w-[18px] bg-urban-midnight transition",
@@ -51,8 +49,6 @@ export const styles = {
     "relative flex h-[310px] w-[min(310px,86vw)] items-center justify-center overflow-hidden rounded-t-[200px] border border-urban-blush/80 bg-[radial-gradient(ellipse_at_48%_39%,rgba(201,173,167,.42),transparent_49%),linear-gradient(145deg,#F2E9E4,#C9ADA7)] shadow-[0_30px_70px_rgba(34,34,59,.12)] sm:h-[400px] sm:w-[350px] md:h-[465px] md:w-[400px]",
   artIndex:
     "absolute top-8 left-1/2 whitespace-nowrap text-[8px] tracking-[.25em] text-urban-slate -translate-x-1/2 md:top-10",
-  artLogo:
-    "relative z-10 -mt-5 size-[250px] rounded-full object-cover mix-blend-multiply sm:size-[290px] md:size-[330px]",
   artCaption:
     "absolute bottom-9 z-10 text-center text-[9px] leading-[2.2] tracking-[.2em] text-urban-midnight md:bottom-[52px]",
   artCaptionSmall: "text-[7px] tracking-[.18em] text-urban-slate",

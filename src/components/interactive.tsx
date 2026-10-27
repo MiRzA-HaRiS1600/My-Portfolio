@@ -2,7 +2,6 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import { styles } from "~/components/tailwind-styles";
 
 const links = [
@@ -28,15 +27,6 @@ export function SiteNav() {
   return (
     <nav className={styles.nav} aria-label="Main navigation">
       <a className={styles.brand} href="/" aria-label="Mirza Haris Amin, home">
-        <span className={styles.brandMark}>
-          <Image
-            src="/images/mirza-haris-amin-logo.png"
-            alt=""
-            fill
-            sizes="40px"
-            className="object-cover mix-blend-multiply"
-          />
-        </span>
         <span>Mirza Haris Amin<span className="text-urban-blush">.</span></span>
       </a>
       <button
