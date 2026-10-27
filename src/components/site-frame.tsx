@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { SiteNav } from "~/components/interactive";
 import { styles } from "~/components/tailwind-styles";
 
@@ -14,6 +15,15 @@ export function SiteFrame({ children }: { children: ReactNode }) {
         <div className={styles.footerGrid}>
           <div className="col-span-2 md:col-span-1">
             <a className={`${styles.brand} ${styles.footerBrand}`} href="/" aria-label="Mirza Haris Amin, back to home">
+              <span className={`${styles.brandMark} !size-8`}>
+                <Image
+                  src="/images/mirza-haris-amin-logo.png"
+                  alt=""
+                  fill
+                  sizes="32px"
+                  className="object-cover mix-blend-multiply"
+                />
+              </span>
               <span>Mirza Haris Amin<span className="text-urban-blush">.</span></span>
             </a>
             <p className={styles.footerCopy}>A BS Computer Science student learning to build thoughtful web experiences.</p>
