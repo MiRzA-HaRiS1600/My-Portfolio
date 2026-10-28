@@ -17,11 +17,11 @@ export function SiteFrame({ children }: { children: ReactNode }) {
             <a className={`${styles.brand} ${styles.footerBrand}`} href="/" aria-label="Mirza Haris Amin, back to home">
               <span className={`${styles.brandMark} !size-8`}>
                 <Image
-                  src="/images/mirza-haris-amin-logo.png"
+                  src="/images/mirza-haris-amin-profile.jpeg"
                   alt=""
                   fill
                   sizes="32px"
-                  className="object-cover mix-blend-multiply"
+                  className="object-cover"
                 />
               </span>
               <span>Mirza Haris Amin<span className="text-urban-blush">.</span></span>

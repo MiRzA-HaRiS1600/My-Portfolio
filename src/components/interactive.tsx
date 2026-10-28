@@ -30,11 +30,11 @@ export function SiteNav() {
       <a className={styles.brand} href="/" aria-label="Mirza Haris Amin, home">
         <span className={styles.brandMark}>
           <Image
-            src="/images/mirza-haris-amin-logo.png"
+            src="/images/mirza-haris-amin-profile.jpeg"
             alt=""
             fill
             sizes="40px"
-            className="object-cover mix-blend-multiply"
+            className="object-cover"
           />
         </span>
         <span>Mirza Haris Amin<span className="text-urban-blush">.</span></span>

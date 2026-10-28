@@ -121,11 +121,11 @@ export default function PortfolioPage({ page }: { page: PortfolioPageName }) {
                   <div className={styles.heroArt}>
                     <span className={styles.artIndex}>PORTFOLIO · 2026</span>
                     <Image
-                      className={styles.artLogo}
-                      src="/images/mirza-haris-amin-logo.png"
-                      alt="Mirza Haris Amin monogram logo"
+                      className={styles.artPortrait}
+                      src="/images/mirza-haris-amin-profile.jpeg"
+                      alt="Portrait of Mirza Haris Amin"
                       width={768}
-                      height={768}
+                      height={1024}
                     />
                     <span className={styles.artCaption}>MIRZA HARIS AMIN<br /><small className={styles.artCaptionSmall}>COMPUTER SCIENCE · WEB</small></span>
                     <span className={`${styles.artSeal} -translate-y-1/2`} aria-hidden="true">✳</span>
