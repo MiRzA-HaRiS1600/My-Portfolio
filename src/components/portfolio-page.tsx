@@ -26,6 +26,18 @@ function ServiceIcon({ name }: { name: (typeof services)[number]["icon"] }) {
       {name === "maintenance" && (
         <path d="M20 7v5h-5M4 17v-5h5M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2" />
       )}
+      {name === "seo" && (
+        <>
+          <circle cx="10.5" cy="10.5" r="6.5" />
+          <path d="m15.5 15.5 5 5M7.5 12l2-2 2 1 2.5-3" />
+        </>
+      )}
+      {name === "quality" && (
+        <>
+          <rect x="4" y="3" width="16" height="18" rx="2" />
+          <path d="m8 12 2.5 2.5L16 9M8 7h3m-3 10h8" />
+        </>
+      )}
     </svg>
   );
 }

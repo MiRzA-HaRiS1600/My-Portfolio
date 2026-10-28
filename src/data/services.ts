@@ -50,6 +50,32 @@ export const services = [
     topics: ["Checking links, content, and page behavior", "Testing layouts at different screen sizes", "Using browser developer tools", "Keeping code organized and changes manageable"],
     practice:
       "A recurring checklist for checking a personal site after content, styling, or code changes."
+  },
+  {
+    number: "05",
+    slug: "seo-optimization",
+    icon: "seo",
+    title: "SEO Optimization",
+    description:
+      "Learning how clear content and technical best practices help people discover websites through search.",
+    detail:
+      "Exploring foundational on-page and technical SEO practices, including useful metadata, accessible structure, and performance checks. This is a developing learning area, not a claim of professional SEO results.",
+    topics: ["Page titles and meta descriptions", "Semantic headings and useful content", "Image alt text and descriptive links", "Sitemaps, indexing, and performance basics"],
+    practice:
+      "Review a small website and prepare a checklist of practical improvements to its content, metadata, accessibility, and performance."
+  },
+  {
+    number: "06",
+    slug: "software-quality-assurance",
+    icon: "quality",
+    title: "Software Quality Assurance (SQA)",
+    description:
+      "Practicing systematic testing to find issues and make websites more reliable and easier to use.",
+    detail:
+      "Learning how to check software against expected behavior using clear test cases and careful exploratory testing. This is a developing skill area, not a claim of professional QA experience.",
+    topics: ["Writing test cases and acceptance criteria", "Functional and regression testing", "Responsive and cross-browser checks", "Reporting bugs with clear reproduction steps"],
+    practice:
+      "Create and run a test checklist for a website's navigation, forms, responsive layouts, and common user flows."
   }
 ] as const;
 

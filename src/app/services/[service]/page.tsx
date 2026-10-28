@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ContactForm } from "~/components/interactive";
 import { SiteFrame } from "~/components/site-frame";
 import { styles } from "~/components/tailwind-styles";
 import { services } from "~/data/services";
@@ -63,6 +64,18 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
                 <p className={styles.practiceNote}>This is a learning goal, not a claim of completed professional work.</p>
               </aside>
             </div>
+
+            <section className={styles.serviceContact} aria-labelledby="service-contact-title">
+              <div>
+                <p className={styles.eyebrow}>LET&apos;S TALK</p>
+                <h2 className={styles.detailPanelTitle} id="service-contact-title">Interested in {service.title}?</h2>
+                <p className={styles.practiceText}>Send a message and I&apos;ll be glad to hear from you.</p>
+              </div>
+              <ContactForm
+                title="Contact about this service"
+                defaultSubject={`Service inquiry: ${service.title}`}
+              />
+            </section>
 
             <div className={styles.detailFooter}>
               <p className="text-[11px] text-urban-slate">Interested in discussing this area?</p>

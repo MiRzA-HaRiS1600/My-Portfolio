@@ -70,7 +70,13 @@ export function SiteNav() {
   );
 }
 
-export function ContactForm() {
+export function ContactForm({
+  title = "Send a message",
+  defaultSubject = ""
+}: {
+  title?: string;
+  defaultSubject?: string;
+}) {
   const [status, setStatus] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -96,12 +102,12 @@ export function ContactForm() {
 
   return (
     <form className={styles.contactForm} onSubmit={handleSubmit}>
-      <div className={styles.formHeading}><h3 className={styles.formTitle}>Send a message</h3><span className={styles.formSubtitle}>I&apos;ll be glad to hear from you.</span></div>
+      <div className={styles.formHeading}><h3 className={styles.formTitle}>{title}</h3><span className={styles.formSubtitle}>I&apos;ll be glad to hear from you.</span></div>
       <div className={styles.formRow}>
         <label className={styles.formLabel}>Name<input className={`${styles.formControl} ${styles.formInput}`} type="text" name="name" autoComplete="name" placeholder="Your name" required maxLength={100} /></label>
         <label className={styles.formLabel}>Email<input className={`${styles.formControl} ${styles.formInput}`} type="email" name="email" autoComplete="email" placeholder="you@example.com" required maxLength={254} /></label>
       </div>
-      <label className={styles.formLabel}>Subject<input className={`${styles.formControl} ${styles.formInput}`} type="text" name="subject" placeholder="What is this about?" required maxLength={150} /></label>
+      <label className={styles.formLabel}>Subject<input className={`${styles.formControl} ${styles.formInput}`} type="text" name="subject" placeholder="What is this about?" defaultValue={defaultSubject} required maxLength={150} /></label>
       <label className={styles.formLabel}>Message<textarea className={`${styles.formControl} ${styles.formTextarea}`} name="message" rows={4} placeholder="Write your message..." required maxLength={3000} /></label>
       <button className={`${styles.button} ${styles.primaryButton}`} type="submit">Send Message <span aria-hidden="true">↗</span></button>
       <p className={styles.formNote}>This form opens your email app with a pre-filled message; it doesn&apos;t send through a website backend. If no email app opens, email me directly using the address shown.</p>

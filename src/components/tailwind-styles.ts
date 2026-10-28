@@ -74,7 +74,7 @@ export const styles = {
   sectionIntro: "max-w-[390px] text-xs leading-7 text-urban-slate",
   servicesSection:
     "border-y border-urban-blush/50 bg-gradient-to-b from-urban-blush/20 to-urban-ivory",
-  serviceGrid: "grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4",
+  serviceGrid: "grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3",
   serviceCard:
     "group relative block min-h-[220px] overflow-hidden border border-urban-blush/70 bg-gradient-to-br from-urban-blush/30 to-urban-ivory p-5 transition duration-300 hover:-translate-y-1 hover:border-urban-slate/50 hover:from-urban-blush/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-urban-slate sm:min-h-64 sm:p-6",
   serviceIcon:
@@ -126,6 +126,8 @@ export const styles = {
   emailLink:
     "inline-flex items-center gap-2 text-xs text-urban-midnight transition hover:text-urban-slate",
   contactForm: "border border-urban-blush/70 bg-urban-blush/20 p-5 sm:p-7",
+  serviceContact:
+    "mt-10 grid gap-8 border border-urban-blush/70 bg-[radial-gradient(ellipse_at_0_0,rgba(201,173,167,.3),transparent_50%),#F2E9E4] p-5 sm:p-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-12 lg:p-10",
   formHeading: "mb-5",
   formTitle: "mb-1 font-display text-xl font-medium text-urban-midnight",
   formSubtitle: "text-[10px] text-urban-slate",
